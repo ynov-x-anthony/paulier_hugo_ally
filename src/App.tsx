@@ -13,36 +13,52 @@ const articles = [
 
 function App() {
   return (
+    <>
     <div className="page">
-      <h1>NewsHub</h1>
+      <header>
+        <h1>NewsHub</h1>
 
-      <img src="/hero.jpg" />
+        <img alt="image du site"src="/hero.jpg"  />
 
-      <h3>Derniers articles</h3>
+      </header>
+      
+      <body>
 
-      <ul className="articles">
-        {articles.map((a) => (
-          <li key={a.id} className="article">
-            <span className={'dot ' + (a.status === 'annulé' ? 'dot-red' : 'dot-green')} />
-            <span>{a.title}</span>
-          </li>
-        ))}
-      </ul>
+          <h2>Derniers articles</h2>
 
-      <div className="carousel">
-        <p>📢 Abonnez-vous à notre newsletter pour ne rien rater !</p>
-      </div>
+          <ul className="articles">
+            {articles.map((a) => (
+              <li key={a.id} className="article">
+                <span className={'dot ' + (a.status === 'annulé' ? 'dot-red' : 'dot-green')} />
+                <span>{a.title}</span>
+                <span>{"Status de la Publication : " + a.status}</span>
+              </li>
+            ))}
+          </ul>
+        
+        
+        <div className="carousel">
+          <p>📢 Abonnez-vous à notre newsletter pour ne rien rater !</p>
+        </div>
 
-      <div className="see-more" onClick={() => alert('Chargement de la suite...')}>
-        Voir plus
-      </div>
+        <button className="see-more" onClick={() => alert('Chargement de la suite...')}>
+          Voir plus
+        </button>
 
-      <p>
+
+      </body>
+      
+      <footer>
+        <p>
         Pour en savoir plus sur le plan vélo, <a href="/plan-velo">cliquez ici</a>.
         Pour en savoir plus sur le budget, <a href="/budget">cliquez ici</a>.
         Pour en savoir plus sur le festival, <a href="/festival">cliquez ici</a>.
-      </p>
+        </p>
+      </footer>
+      
     </div>
+    </>
+    
   )
 }
 
